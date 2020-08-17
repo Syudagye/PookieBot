@@ -17,14 +17,12 @@ class Info(val bot: Bot): Command(bot.jda, Access.PUBLIC, "info", arrayOf("i"), 
             if (cmd.name == args[1])
                 command = cmd
         }
-        if (command == null)
-            event.channel.sendMessage(":x: Cette commande n'existe pas")
-        else{
+        if (command != null) {
             val embed = EmbedBuilder()
             embed.setTitle(":information_source: Info commande")
             embed.setDescription("`${command!!.getCommandUsageAsString()}`")
             embed.addField("Description", command!!.description, false)
-            when (command!!.access){
+            when (command!!.access) {
                 Access.PUBLIC -> embed.addField("Accès", "Publique", true)
                 Access.STAFF -> embed.addField("Accès", "Staff", true)
                 Access.ADMIN -> embed.addField("Accès", "Admins", true)
@@ -33,7 +31,8 @@ class Info(val bot: Bot): Command(bot.jda, Access.PUBLIC, "info", arrayOf("i"), 
             embed.setColor(Color.CYAN)
 
             event.channel.sendMessage(embed.build()).queue()
-        }
+        }else
+            event.channel.sendMessage(":x: Cette commande n'existe pas")
     }
 
 }

@@ -23,7 +23,7 @@ class EventHandler(val bot: Bot): ListenerAdapter() {
         bot.commandsRegistry.commands.forEach { command ->
             command.getAllCommandCalls().forEach { call ->
                 if(args[0] == "${bot.prefix}${call}"){
-                    if (command.mandatoryArgs != null && args.size < command.mandatoryArgs.size){
+                    if (command.mandatoryArgs != null && args.size < command.mandatoryArgs.size + 1){
                         val embed = EmbedBuilder()
                         embed.setTitle(":x: Mauvaise utilisation de la commande !")
                         embed.setDescription("La syntaxe est la suivante :\n`${command.getCommandUsageAsString()}`")
