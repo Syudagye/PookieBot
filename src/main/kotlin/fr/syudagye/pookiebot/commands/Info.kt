@@ -32,7 +32,7 @@ class Info(val bot: Bot): Command(bot.jda, Access.PUBLIC, "info", arrayOf("i"), 
 
             event.channel.sendMessage(embed.build()).queue()
         }else
-            event.channel.sendMessage(":x: Cette commande n'existe pas")
+            event.channel.sendMessage(":x: La commande `${args[1]}` n'existe pas").queue()
     }
 
 }
