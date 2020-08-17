@@ -1,5 +1,7 @@
 # PookieBot
 
+![Dependencies](https://img.shields.io/librariesio/github/DV8FromTheWorld/JDA?label=Discord%20JDA) ![Dependencies](https://img.shields.io/librariesio/github/stleary/JSON-java?label=org.json) ![Discord](https://img.shields.io/discord/477930947728113673?label=Pookie%20Serv)
+
 Le PookieBot est un bot dicord custom spécialement créé pour le Pookie Serv.
 
 ## Support
