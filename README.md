@@ -1,6 +1,6 @@
 # PookieBot
 
-![Dependencies](https://img.shields.io/librariesio/github/DV8FromTheWorld/JDA?label=Discord%20JDA) ![Dependencies](https://img.shields.io/librariesio/github/stleary/JSON-java?label=org.json) ![Discord](https://img.shields.io/badge/Pookie%20Serv-Rejoindre-red?link=https://discord.gg/R22r6cn)
+![Dependencies](https://img.shields.io/librariesio/github/DV8FromTheWorld/JDA?label=Discord%20JDA) ![Dependencies](https://img.shields.io/librariesio/github/stleary/JSON-java?label=org.json) ![Discord](https://img.shields.io/badge/Pookie%20Serv-Rejoindre-red?link=https://discord.gg/R22r6cnleft)
 
 Le PookieBot est un bot dicord custom spécialement créé pour le Pookie Serv.
 
