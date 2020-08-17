@@ -27,8 +27,17 @@ abstract class Command(open val jda: JDA, val access: Access, val name: String, 
                 str.append("`${s}` ")
             }
         }else
-            str.append("*there is no aliases for this command*")
+            str.append("`Aucun alias`")
         return str.toString()
+    }
+
+    fun getAllCommandCalls(): ArrayList<String>{
+        if (aliases != null){
+            val array = arrayListOf(name)
+            aliases.forEach { s -> array.add(s) }
+            return array
+        }else
+            return arrayListOf(name)
     }
 
 }
