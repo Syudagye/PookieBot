@@ -1,8 +1,7 @@
 # PookieBot
 
-![Dependencies](https://img.shields.io/librariesio/github/DV8FromTheWorld/JDA?label=Discord%20JDA)
-![Dependencies](https://img.shields.io/librariesio/github/stleary/JSON-java?label=org.json)
-![Discord](https://img.shields.io/discord/477930947728113673?label=Pookie%20Serv)
+![Dependencies](https://img.shields.io/librariesio/github/DV8FromTheWorld/JDA?label=Discord%20JDA&style=flat-square)
+[![Discord](https://img.shields.io/discord/477930947728113673?label=Pookie%20Serv&style=flat-square)](discord.gg/HEpGN68)
 
 Le PookieBot est un bot dicord custom spécialement créé pour le Pookie Serv.
 
@@ -17,7 +16,7 @@ Le PookieBot est un bot dicord custom spécialement créé pour le Pookie Serv.
 
 ### Lancer le bot
 
-- Inserez le token de votre bot dans `token.txt`
+- Copiez le fichier [`application.conf.example`](/src/main/resources/application.conf.example) vers `application.conf` et remplissez la configuration avec les valeurs attendues
 - Executez le script `start.sh`
 - - Si cela provoque une erreur, editez le fichier et remplacez `gradle` par `gradlew`
 
