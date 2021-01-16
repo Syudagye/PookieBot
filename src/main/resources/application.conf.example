@@ -1,0 +1,15 @@
+token="TOKEN"
+prefix="p!"
+rulesMessage="ID"
+guild_id="ID"
+roles {
+    nouveau="ID"
+    membre="ID"
+    muted="ID"
+}
+channels {
+    general="ID"
+    rules="ID"
+    admin="ID"
+    annonces="ID"
+}

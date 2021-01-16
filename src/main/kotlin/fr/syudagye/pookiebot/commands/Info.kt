@@ -1,19 +1,19 @@
 package fr.syudagye.pookiebot.commands
 
 import fr.syudagye.pookiebot.Access
-import fr.syudagye.pookiebot.Bot
 import fr.syudagye.pookiebot.Command
+import fr.syudagye.pookiebot.EventHandler
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import java.awt.Color
 
-class Info(val bot: Bot): Command(bot.jda, Access.PUBLIC, "info", arrayOf("i"), arrayOf("command"), null) {
+class Info: Command(Access.PUBLIC, "info", arrayOf("i"), arrayOf("command"), null) {
 
     override val description: String = "Donne des information sur une commande"
 
     override fun run(event: GuildMessageReceivedEvent, args: List<String>) {
         var command: Command? = null
-        bot.commandsRegistry.commands.forEach { cmd ->
+        EventHandler.commands.forEach { cmd ->
             if (cmd.name == args[1])
                 command = cmd
         }

@@ -1,11 +1,10 @@
 package fr.syudagye.pookiebot.commands
 
 import fr.syudagye.pookiebot.Access
-import fr.syudagye.pookiebot.Bot
 import fr.syudagye.pookiebot.Command
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 
-class Return(bot: Bot): Command(bot.jda, Access.PUBLIC, "return", null, null, null) {
+class Return: Command(Access.PUBLIC, "return", null, null, null) {
 
     override val description: String = ":repeat:"
 

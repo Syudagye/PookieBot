@@ -1,5 +1,9 @@
 package fr.syudagye.pookiebot
 
+import fr.syudagye.pookiebot.commands.Help
+import fr.syudagye.pookiebot.commands.Info
+import fr.syudagye.pookiebot.commands.Ping
+import fr.syudagye.pookiebot.commands.Return
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.events.ReadyEvent
@@ -8,21 +12,36 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
-class EventHandler(val bot: Bot): ListenerAdapter() {
+class EventHandler: ListenerAdapter() {
+
+    companion object{
+        val commands = arrayOf(
+            //admin
+
+            //staff
+
+            //public
+            Help(),
+            Ping(),
+            Return(),
+            Info()
+        )
+    }
 
     override fun onReady(event: ReadyEvent) {
-        println("Pookie Bot is now ONLINE !")
+        Bot.LOGGER.info("Pookie Bot started !")
     }
 
     override fun onGuildMessageReceived(event: GuildMessageReceivedEvent){
 
-        if (event.author.isBot || !event.message.contentRaw.startsWith(bot.prefix)) return
+        val prefix = Bot.config.getString("prefix")
+        if (event.author.isBot || !event.message.contentRaw.startsWith(prefix)) return
 
         val args = event.message.contentRaw.split(" ")
 
-        bot.commandsRegistry.commands.forEach { command ->
+        commands.forEach { command ->
             command.getAllCommandCalls().forEach { call ->
-                if(args[0] == "${bot.prefix}${call}"){
+                if(args[0] == "$prefix$call"){
                     if (command.mandatoryArgs != null && args.size < command.mandatoryArgs.size + 1){
                         val embed = EmbedBuilder()
                         embed.setTitle(":x: Mauvaise utilisation de la commande !")
@@ -59,9 +78,9 @@ class EventHandler(val bot: Bot): ListenerAdapter() {
     override fun onGuildMessageReactionAdd(event: GuildMessageReactionAddEvent) {
         if (event.member.user.isBot) return
 
-        if (event.messageId == bot.configs.rulesMessageId && event.reactionEmote.emoji == "✅"){
-            event.guild.addRoleToMember(event.member, event.guild.getRoleById(bot.configs.roles.getString("membre"))!!).queue()
-            event.guild.removeRoleFromMember(event.member, event.guild.getRoleById(bot.configs.roles.getString("nouveau"))!!).queue()
+        if (event.messageId == Bot.config.getString("rulesMessage") && event.reactionEmote.emoji == "✅"){
+            event.guild.addRoleToMember(event.member, event.guild.getRoleById(Bot.config.getString("roles.membre"))!!).queue()
+            event.guild.removeRoleFromMember(event.member, event.guild.getRoleById(Bot.config.getString("roles.nouveau"))!!).queue()
         }
     }
 

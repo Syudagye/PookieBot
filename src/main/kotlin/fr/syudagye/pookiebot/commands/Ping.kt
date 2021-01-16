@@ -1,13 +1,12 @@
 package fr.syudagye.pookiebot.commands
 
 import fr.syudagye.pookiebot.Access
-import fr.syudagye.pookiebot.Bot
 import fr.syudagye.pookiebot.Command
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import java.awt.Color
 
-class Ping(bot: Bot): Command(bot.jda, Access.PUBLIC, "ping", arrayOf("p"), null, null) {
+class Ping: Command(Access.PUBLIC, "ping", arrayOf("p"), null, null) {
 
     override val description: String = "Ping le bot"
 

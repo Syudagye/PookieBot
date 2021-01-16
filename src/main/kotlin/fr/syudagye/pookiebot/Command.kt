@@ -1,9 +1,8 @@
 package fr.syudagye.pookiebot
 
-import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 
-abstract class Command(open val jda: JDA, val access: Access, val name: String, val aliases: Array<String>?, val mandatoryArgs: Array<String>?, val optionalArgs: Array<String>?){
+abstract class Command(val access: Access, val name: String, val aliases: Array<String>?, val mandatoryArgs: Array<String>?, val optionalArgs: Array<String>?){
 
     abstract val description: String
 
@@ -17,7 +16,7 @@ abstract class Command(open val jda: JDA, val access: Access, val name: String, 
         optionalArgs?.forEach { s ->
             str.append("[${s}] ")
         }
-        return "`c!${name} ${str}`"
+        return "`${Bot.config.getString("prefix")}$name $str`"
     }
 
     fun getCommandAliasesAsString(): String{

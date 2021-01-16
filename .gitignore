@@ -1,3 +1,4 @@
 /.gradle/
 /build/
 /token.txt
+/src/main/resources/application.conf
